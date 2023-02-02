@@ -1,0 +1,33 @@
+.container {
+  gap: 10px;
+  margin: auto;
+  display: grid;
+  width: 900px;
+  padding: 10px;
+  max-width: 900px;
+  border-radius: 10px;
+  background: $white;
+  min-height: $containerMinHeigth;
+  height: $containerMinHeigth;
+  grid-template-columns: 1fr 2fr;
+  position: relative;
+  @include sm() {
+    grid-template-columns: 1fr;
+    height: 100%;
+    background: transparent;
+    height: 100%;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  @include sm {
+    width: 100vw;
+    min-height: -webkit-fill-available;
+  }
+}

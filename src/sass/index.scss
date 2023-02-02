@@ -1,5 +1,31 @@
-$color :  palevioletred;
+@import "variable";
 
-.text-pink {
-    color: $color;
-}
+//utilities
+@import "./utilities";
+
+// resets
+@import "./base/reset";
+
+//layout
+@import "./layouts/breakpoints.scss";
+
+// container
+@import "./modules/container";
+
+//sidebar-nav
+@import "./modules/sidebar-nav";
+
+//main
+@import "./modules/main";
+
+//selector plan component
+@import "./modules/selectorPlan";
+
+// add on Card component
+@import "./modules/addOnCard";
+
+// finishing up
+@import "./modules/finishingUp";
+
+// thank you comp...
+@import "./modules/thankYou";

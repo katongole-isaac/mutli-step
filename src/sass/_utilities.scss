@@ -1,0 +1,48 @@
+@mixin flexProps($dir: column) {
+  display: flex;
+  flex-direction: $dir;
+}
+
+@mixin mainChildrenElemProps {
+  padding: 10px;
+  height: 85%;
+  min-height: 85%;
+  max-height: 85%;
+
+  @include sm {
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+  }
+}
+
+@mixin setBg-img() {
+  @content;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin displayOnSmallScreen {
+  @include sm {
+    z-index: 1;
+    padding: 5px;
+    border-radius: 15px;
+    position: absolute;
+    top: 140px;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 96%;
+    min-height: 70%;
+    max-height: 70%;
+  }
+}
+
+@mixin components-sm-screen {
+  @include sm {
+    background: $white;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+}

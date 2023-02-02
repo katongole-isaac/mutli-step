@@ -1,0 +1,75 @@
+@mixin customFlex($dir: column) {
+  @include flexProps($dir);
+  justify-content: space-between;
+}
+
+.finishing-up {
+    @include components-sm-screen;
+
+
+  @include mainChildrenElemProps;
+
+  // found in _main
+  .header {
+    @extend .main-header-styles;
+  }
+
+  .total {
+    color: $cool-gray;
+    @include customFlex($dir: row);
+
+    & span:nth-of-type(2) {
+      color: $purplish-blue;
+      font-weight: 700;
+    }
+  }
+
+  .finishItems {
+    background: $magnolia;
+    padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 1em;
+
+    .notActive {
+      cursor: pointer;
+      padding: 0.5em;
+      margin: .5em 0;
+
+      & div:first-child {
+        color: $cool-gray;
+        @include customFlex($dir: row);
+      }
+
+      & > div span:last-child {
+        color: $marine-blue;
+      }
+    }
+
+    .cardItem {
+      cursor: pointer;
+      @include flexProps;
+      width: 100%;
+      gap: 0.3em;
+      padding: 0.5em;
+      & div:first-child {
+        @include customFlex($dir: row);
+
+        font-weight: 700;
+      }
+
+      a {
+        text-decoration: underline;
+        color: $cool-gray;
+        &:hover {
+          color: $purplish-blue;
+        }
+      }
+
+      hr {
+       margin-top: .8em ;
+       margin-bottom: 0.3em;
+        border: 1px solid $light-gray;
+      }
+    }
+  }
+}

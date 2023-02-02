@@ -1,0 +1,6 @@
+
+@mixin sm() {
+  @media screen and (max-width: map-get($break-points, "sm")) {
+    @content;
+  }
+}

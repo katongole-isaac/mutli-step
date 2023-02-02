@@ -1,0 +1,112 @@
+.selector-plan {
+  @include mainChildrenElemProps;
+  @include components-sm-screen;
+
+  // found in _main
+  .header {
+    @extend .main-header-styles;
+  }
+
+  .card-container {
+    @include flexProps($dir: row);
+    width: 100%;
+    gap: 1em;
+    min-height: 200px;
+    padding: 0.5em;
+    margin-bottom: 2em;
+    min-height: 220px;
+    @include sm {
+      @include flexProps;
+    }
+
+    .card {
+      border: $cool-gray 1px solid;
+      color: $marine-blue;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1em;
+      @include flexProps;
+      @include sm {
+        @include flexProps($dir: row);
+      }
+      flex: 1;
+      gap: 1em;
+      cursor: pointer;
+
+      .image {
+        margin-bottom: 2em;
+        width: 50px;
+        height: 50px;
+        @include sm {
+          margin-bottom: 0;
+        }
+      }
+
+      .card-content {
+        @include flexProps;
+        gap: 0.5em;
+        flex: 1;
+        justify-content: center;
+
+        & small {
+          color: $cool-gray;
+        }
+
+        & span:last-child {
+          font-weight: 400;
+        }
+      }
+    }
+
+    .card.isSelected {
+      border: $marine-blue 1px solid;
+      background: $magnolia;
+    }
+  }
+
+  .price-switch {
+    min-height: 50px;
+    padding: 1em;
+    width: 100%;
+    @include flexProps($dir: row);
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: $magnolia;
+    gap: 2em;
+
+    .toggle {
+      width: 40px;
+      height: 20px;
+      padding: 0.4em 0.2em;
+      border-radius: 10px;
+      background: $marine-blue;
+      cursor: pointer;
+      @include flexProps($dir: row);
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+
+      .ball {
+        width: 14px;
+        height: 14px;
+        background: $white;
+        border-radius: 50%;
+        transition: all 0.4s;
+      }
+
+      .ball.ball-isToggled {
+        margin-left: auto;
+      }
+    }
+
+    .plans {
+      color: $cool-gray;
+      font-weight: 700;
+    }
+    .monthly,
+    .yearly {
+      color: $marine-blue;
+    }
+  }
+}

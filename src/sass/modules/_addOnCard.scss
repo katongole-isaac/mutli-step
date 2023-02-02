@@ -1,0 +1,119 @@
+.pick-addons {
+  @include mainChildrenElemProps;
+    @include components-sm-screen;
+
+  @include flexProps;
+  height: 100%;
+  // found in _main
+  .header {
+    @extend .main-header-styles;
+  }
+
+  .error {
+    background: lighten($color: $error-color, $amount: 35%);
+    padding: 0.4em;
+    position: relative;
+    top: -10px;
+    font-weight: 700;
+    border-radius: 8px;
+    
+  }
+
+  .cardlist {
+    flex: 1;
+    color: $magnolia;
+    margin-bottom: 1em;
+
+    .add-on-card {
+      width: 100%;
+      min-height: 50px;
+      padding: 1em;
+      cursor: pointer;
+
+      @include flexProps($dir: row);
+      gap: 1em;
+      margin-bottom: 1em;
+      align-items: center;
+      border: 1px solid $cool-gray;
+      border-radius: 10px;
+      background: $magnolia;
+
+      .card-content {
+        flex: 1;
+        @include flexProps($dir: row);
+        align-items: center;
+        justify-content: space-between;
+
+        & div:first-child {
+          @include flexProps;
+          gap: 0.1em;
+
+          span:first-child {
+            color: $marine-blue;
+            font-weight: 700;
+            margin-bottom: 0.5em;
+          }
+
+          span:nth-of-type(2) {
+            color: $cool-gray;
+          }
+        }
+
+        & div:nth-of-type(2) span {
+          color: $purplish-blue;
+        }
+      }
+
+      .checkbox {
+        width: 30px;
+        height: 30px;
+        border: none;
+        margin-right: 10px;
+        border-radius: 5px;
+        position: relative;
+        @include flexProps($dir: row);
+
+        input[type="checkbox"] {
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+          cursor: pointer;
+          appearance: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $light-gray;
+          &:hover {
+            background: $cool-gray;
+          }
+        }
+
+        input[type="checkbox"]:after {
+          font-family: "Material Icons";
+          content: "\e5ca";
+          font-size: 2em;
+          font-weight: bolder;
+          color: $white;
+          opacity: 0;
+        }
+
+        input[type="checkbox"]:checked {
+          background: $purplish-blue;
+
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+      &.isSelected {
+        border: 1px solid $purplish-blue;
+      }
+    }
+  }
+}
+
+// .material-symbols-outlined {
+//   font-size: 40px;
+//   font-weight: bold;
+//   color: purple;
+// }

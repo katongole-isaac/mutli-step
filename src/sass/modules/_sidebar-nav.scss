@@ -1,0 +1,73 @@
+//bg-images
+$imgUrl: "../../instruction/assets/images/bg-sidebar-desktop.svg";
+$imgbg_sm-screen: "../../instruction/assets/images/bg-sidebar-mobile.svg";
+
+.sidebar-nav {
+  height: 100%;
+  width: 100%;
+  //this mixin is found in ./layout/_breakpoint.scss
+  @include setBg-img {
+    background-image: url($imgUrl);
+  }
+
+  //setting the background images for sm screen
+  @include sm {
+    @include setBg-img {
+      background-image: url($imgbg_sm-screen);
+    }
+
+    @include flexProps($dir: row);
+    height: 240px;
+    min-height: 260px;
+    justify-content: center;
+    align-items: flex-start;
+
+  }
+
+  color: $white;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 3em 2em;
+  font-size: 17px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  & .step {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    & .num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $white;
+      color: black;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      transition: all 0.5s;
+    }
+
+    & .num.active-step {
+      background: $light-blue;
+    }
+
+    & .info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1em;
+
+      @include sm {
+        display: none;
+      }
+
+      & span:first-child {
+        color: $cool-gray;
+      }
+    }
+  }
+}
